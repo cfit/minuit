@@ -51,14 +51,14 @@ INCLUDES =					\
 	-I$(top_srcdir)	
 
 test_Minuit_DemoGaussSim_LDADD =				\
-	$(top_builddir)/src/liblcg_Minuit.la
+	$(top_builddir)/src/libminuit.la
 
 test_Minuit_DemoGaussSim_LDFLAGS =				\
 	-L$(CXX_LIB_PATH)			\
 	-R$(CXX_LIB_PATH)
 
 test_Minuit_DemoFumili_LDADD =				\
-	$(top_builddir)/src/liblcg_Minuit.la
+	$(top_builddir)/src/libminuit.la
 
 test_Minuit_DemoFumili_LDFLAGS =				\
 	-L$(CXX_LIB_PATH)			\
@@ -66,7 +66,7 @@ test_Minuit_DemoFumili_LDFLAGS =				\
 
 test_Minuit_PaulTest_LDADD =	 \
 	GaussFcn.o			\
-	$(top_builddir)/src/liblcg_Minuit.la
+	$(top_builddir)/src/libminuit.la
 
 test_Minuit_PaulTest_LDFLAGS =				\
 	-L$(CXX_LIB_PATH)			\
@@ -74,28 +74,28 @@ test_Minuit_PaulTest_LDFLAGS =				\
 
 test_Minuit_PaulTest2_LDADD =				\
 	GaussFcn.o			\
-	$(top_builddir)/src/liblcg_Minuit.la
+	$(top_builddir)/src/libminuit.la
 
 test_Minuit_PaulTest2_LDFLAGS =				\
 	-L$(CXX_LIB_PATH)			\
 	-R$(CXX_LIB_PATH)
 
 test_Minuit_PaulTest3_LDADD =				\
-	$(top_builddir)/src/liblcg_Minuit.la
+	$(top_builddir)/src/libminuit.la
 
 test_Minuit_PaulTest3_LDFLAGS =				\
 	-L$(CXX_LIB_PATH)			\
 	-R$(CXX_LIB_PATH)
 
 test_Minuit_PaulTest4_LDADD =				\
-	$(top_builddir)/src/liblcg_Minuit.la
+	$(top_builddir)/src/libminuit.la
 
 test_Minuit_PaulTest4_LDFLAGS =				\
 	-L$(CXX_LIB_PATH)			\
 	-R$(CXX_LIB_PATH)
 
 test_Minuit_ReneTest_LDADD =				\
-	$(top_builddir)/src/liblcg_Minuit.la
+	$(top_builddir)/src/libminuit.la
 
 test_Minuit_ReneTest_LDFLAGS =				\
 	-L$(CXX_LIB_PATH)			\

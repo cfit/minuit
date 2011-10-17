@@ -18,7 +18,7 @@
 # Author: Paul_Kunz@slac.stanford.edu
 #
 
-SOURCES = $(liblcg_Minuit_la_SOURCES)
+SOURCES = $(libminuit_la_SOURCES)
 
 srcdir = @srcdir@
 top_srcdir = @top_srcdir@
@@ -62,8 +62,8 @@ am__strip_dir = `echo $$p | sed -e 's|^.*/||'`;
 am__installdirs = "$(DESTDIR)$(libdir)"
 libLTLIBRARIES_INSTALL = $(INSTALL)
 LTLIBRARIES = $(lib_LTLIBRARIES)
-liblcg_Minuit_la_LIBADD =
-am_liblcg_Minuit_la_OBJECTS = AnalyticalGradientCalculator.lo \
+libminuit_la_LIBADD =
+am_libminuit_la_OBJECTS = AnalyticalGradientCalculator.lo \
 	BasicMinimumError.lo CombinedMinimumBuilder.lo \
 	DavidonErrorUpdator.lo FumiliBuilder.lo FumiliErrorUpdator.lo \
 	FumiliGradientCalculator.lo FumiliMinimizer.lo \
@@ -88,7 +88,7 @@ am_liblcg_Minuit_la_OBJECTS = AnalyticalGradientCalculator.lo \
 	VariableMetricEDMEstimator.lo mnbins.lo mndasum.lo mndaxpy.lo \
 	mnddot.lo mndscal.lo mndspmv.lo mndspr.lo mnteigen.lo \
 	mnlsame.lo mntplot.lo mnvert.lo mnxerbla.lo
-liblcg_Minuit_la_OBJECTS = $(am_liblcg_Minuit_la_OBJECTS)
+libminuit_la_OBJECTS = $(am_libminuit_la_OBJECTS)
 DEFAULT_INCLUDES = -I. -I$(srcdir) -I$(top_builddir)
 depcomp = $(SHELL) $(top_srcdir)/config/depcomp
 am__depfiles_maybe = depfiles
@@ -100,8 +100,8 @@ LTCXXCOMPILE = $(LIBTOOL) --tag=CXX --mode=compile $(CXX) $(DEFS) \
 CXXLD = $(CXX)
 CXXLINK = $(LIBTOOL) --tag=CXX --mode=link $(CXXLD) $(AM_CXXFLAGS) \
 	$(CXXFLAGS) $(AM_LDFLAGS) $(LDFLAGS) -o $@
-SOURCES = $(liblcg_Minuit_la_SOURCES)
-DIST_SOURCES = $(liblcg_Minuit_la_SOURCES)
+SOURCES = $(libminuit_la_SOURCES)
+DIST_SOURCES = $(libminuit_la_SOURCES)
 ETAGS = etags
 CTAGS = ctags
 DISTFILES = $(DIST_COMMON) $(DIST_SOURCES) $(TEXINFOS) $(EXTRA_DIST)
@@ -210,8 +210,8 @@ target_alias = @target_alias@
 AUTOMAKE_OPTIONS = foreign
 
 # The convenience library to be built.
-lib_LTLIBRARIES = liblcg_Minuit.la
-liblcg_Minuit_la_SOURCES = \
+lib_LTLIBRARIES = libminuit.la
+libminuit_la_SOURCES = \
          AnalyticalGradientCalculator.cpp	\
          BasicMinimumError.cpp			\
          CombinedMinimumBuilder.cpp		\
@@ -344,8 +344,8 @@ clean-libLTLIBRARIES:
 	  echo "rm -f \"$${dir}/so_locations\""; \
 	  rm -f "$${dir}/so_locations"; \
 	done
-liblcg_Minuit.la: $(liblcg_Minuit_la_OBJECTS) $(liblcg_Minuit_la_DEPENDENCIES) 
-	$(CXXLINK) -rpath $(libdir) $(liblcg_Minuit_la_LDFLAGS) $(liblcg_Minuit_la_OBJECTS) $(liblcg_Minuit_la_LIBADD) $(LIBS)
+libminuit.la: $(libminuit_la_OBJECTS) $(libminuit_la_DEPENDENCIES) 
+	$(CXXLINK) -rpath $(libdir) $(libminuit_la_LDFLAGS) $(libminuit_la_OBJECTS) $(libminuit_la_LIBADD) $(LIBS)
 
 mostlyclean-compile:
 	-rm -f *.$(OBJEXT)
@@ -625,7 +625,7 @@ uninstall-am: uninstall-info-am uninstall-libLTLIBRARIES
 
 
 # For platforms where automake dependency generation doesn't work.
-depend: $(liblcg_Minuit_la_SOURCES)
+depend: $(libminuit_la_SOURCES)
 	$(top_srcdir)/config/makedepend $(DEFS) $(INCLUDES) $(CPPFLAGS) $?
 
 # An extra clean target for the Sun CC compiler.

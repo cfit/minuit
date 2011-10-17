@@ -7,9 +7,9 @@
 AUTOMAKE_OPTIONS = foreign
 
 # The convenience library to be built.
-lib_LTLIBRARIES = liblcg_Minuit.la
+lib_LTLIBRARIES = libminuit.la
 
-liblcg_Minuit_la_SOURCES =				\
+libminuit_la_SOURCES =				\
          AnalyticalGradientCalculator.cpp	\
          BasicMinimumError.cpp			\
          CombinedMinimumBuilder.cpp		\
@@ -83,7 +83,7 @@ INCLUDES =					\
 	-I$(top_srcdir)
 
 # For platforms where automake dependency generation doesn't work.
-depend: $(liblcg_Minuit_la_SOURCES)
+depend: $(libminuit_la_SOURCES)
 	$(top_srcdir)/config/makedepend $(DEFS) $(INCLUDES) $(CPPFLAGS) $?
 
 # An extra clean target for the Sun CC compiler.

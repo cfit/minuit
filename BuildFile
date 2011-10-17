@@ -37,7 +37,7 @@
 
 <include_path path=.>
 <export>
-  <lib name=lcg_Minuit>
+  <lib name=minuit>
 </export>
 
 # uncomment for stack allocator 

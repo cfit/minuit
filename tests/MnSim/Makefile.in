@@ -63,34 +63,34 @@ am_test_Minuit_DemoFumili_OBJECTS = GaussDataGen.$(OBJEXT) \
 	DemoFumili.$(OBJEXT)
 test_Minuit_DemoFumili_OBJECTS = $(am_test_Minuit_DemoFumili_OBJECTS)
 test_Minuit_DemoFumili_DEPENDENCIES =  \
-	$(top_builddir)/src/liblcg_Minuit.la
+	$(top_builddir)/src/libminuit.la
 am_test_Minuit_DemoGaussSim_OBJECTS = GaussFcn.$(OBJEXT) \
 	GaussDataGen.$(OBJEXT) DemoGaussSim.$(OBJEXT)
 test_Minuit_DemoGaussSim_OBJECTS =  \
 	$(am_test_Minuit_DemoGaussSim_OBJECTS)
 test_Minuit_DemoGaussSim_DEPENDENCIES =  \
-	$(top_builddir)/src/liblcg_Minuit.la
+	$(top_builddir)/src/libminuit.la
 am_test_Minuit_PaulTest_OBJECTS = PaulTest.$(OBJEXT)
 test_Minuit_PaulTest_OBJECTS = $(am_test_Minuit_PaulTest_OBJECTS)
 test_Minuit_PaulTest_DEPENDENCIES = GaussFcn.o \
-	$(top_builddir)/src/liblcg_Minuit.la
+	$(top_builddir)/src/libminuit.la
 am_test_Minuit_PaulTest2_OBJECTS = PaulTest2.$(OBJEXT)
 test_Minuit_PaulTest2_OBJECTS = $(am_test_Minuit_PaulTest2_OBJECTS)
 test_Minuit_PaulTest2_DEPENDENCIES = GaussFcn.o \
-	$(top_builddir)/src/liblcg_Minuit.la
+	$(top_builddir)/src/libminuit.la
 am_test_Minuit_PaulTest3_OBJECTS = GaussFcn2.$(OBJEXT) \
 	PaulTest3.$(OBJEXT)
 test_Minuit_PaulTest3_OBJECTS = $(am_test_Minuit_PaulTest3_OBJECTS)
 test_Minuit_PaulTest3_DEPENDENCIES =  \
-	$(top_builddir)/src/liblcg_Minuit.la
+	$(top_builddir)/src/libminuit.la
 am_test_Minuit_PaulTest4_OBJECTS = PaulTest4.$(OBJEXT)
 test_Minuit_PaulTest4_OBJECTS = $(am_test_Minuit_PaulTest4_OBJECTS)
 test_Minuit_PaulTest4_DEPENDENCIES =  \
-	$(top_builddir)/src/liblcg_Minuit.la
+	$(top_builddir)/src/libminuit.la
 am_test_Minuit_ReneTest_OBJECTS = ReneTest.$(OBJEXT)
 test_Minuit_ReneTest_OBJECTS = $(am_test_Minuit_ReneTest_OBJECTS)
 test_Minuit_ReneTest_DEPENDENCIES =  \
-	$(top_builddir)/src/liblcg_Minuit.la
+	$(top_builddir)/src/libminuit.la
 DEFAULT_INCLUDES = -I. -I$(srcdir) -I$(top_builddir)
 depcomp = $(SHELL) $(top_srcdir)/config/depcomp
 am__depfiles_maybe = depfiles
@@ -256,14 +256,14 @@ INCLUDES = \
 	-I$(top_srcdir)	
 
 test_Minuit_DemoGaussSim_LDADD = \
-	$(top_builddir)/src/liblcg_Minuit.la
+	$(top_builddir)/src/libminuit.la
 
 test_Minuit_DemoGaussSim_LDFLAGS = \
 	-L$(CXX_LIB_PATH)			\
 	-R$(CXX_LIB_PATH)
 
 test_Minuit_DemoFumili_LDADD = \
-	$(top_builddir)/src/liblcg_Minuit.la
+	$(top_builddir)/src/libminuit.la
 
 test_Minuit_DemoFumili_LDFLAGS = \
 	-L$(CXX_LIB_PATH)			\
@@ -271,7 +271,7 @@ test_Minuit_DemoFumili_LDFLAGS = \
 
 test_Minuit_PaulTest_LDADD = \
 	GaussFcn.o			\
-	$(top_builddir)/src/liblcg_Minuit.la
+	$(top_builddir)/src/libminuit.la
 
 test_Minuit_PaulTest_LDFLAGS = \
 	-L$(CXX_LIB_PATH)			\
@@ -279,28 +279,28 @@ test_Minuit_PaulTest_LDFLAGS = \
 
 test_Minuit_PaulTest2_LDADD = \
 	GaussFcn.o			\
-	$(top_builddir)/src/liblcg_Minuit.la
+	$(top_builddir)/src/libminuit.la
 
 test_Minuit_PaulTest2_LDFLAGS = \
 	-L$(CXX_LIB_PATH)			\
 	-R$(CXX_LIB_PATH)
 
 test_Minuit_PaulTest3_LDADD = \
-	$(top_builddir)/src/liblcg_Minuit.la
+	$(top_builddir)/src/libminuit.la
 
 test_Minuit_PaulTest3_LDFLAGS = \
 	-L$(CXX_LIB_PATH)			\
 	-R$(CXX_LIB_PATH)
 
 test_Minuit_PaulTest4_LDADD = \
-	$(top_builddir)/src/liblcg_Minuit.la
+	$(top_builddir)/src/libminuit.la
 
 test_Minuit_PaulTest4_LDFLAGS = \
 	-L$(CXX_LIB_PATH)			\
 	-R$(CXX_LIB_PATH)
 
 test_Minuit_ReneTest_LDADD = \
-	$(top_builddir)/src/liblcg_Minuit.la
+	$(top_builddir)/src/libminuit.la
 
 test_Minuit_ReneTest_LDFLAGS = \
 	-L$(CXX_LIB_PATH)			\

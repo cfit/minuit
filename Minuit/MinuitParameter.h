@@ -3,6 +3,7 @@
 
 #include <algorithm>
 #include <memory>
+#include <string>
 
 /** class for the individual Minuit parameter with name and number; 
     contains the input numbers for the minimization or the output result
@@ -47,13 +48,11 @@ public:
     theNum(par.theNum), theValue(par.theValue), theError(par.theError),
     theConst(par.theConst), theFix(par.theFix), theLoLimit(par.theLoLimit), 
     theUpLimit(par.theUpLimit), theLoLimValid(par.theLoLimValid), 
-    theUpLimValid(par.theUpLimValid) {
-    memcpy(theName, par.name(), 11*sizeof(char));
-  }
+    theUpLimValid(par.theUpLimValid), theName( par.name() ) {}
   
   MinuitParameter& operator=(const MinuitParameter& par) {
-    theNum = par.theNum;
-    memcpy(theName, par.theName, 11*sizeof(char));
+    theNum  = par.theNum;
+    theName = par.theName;
     theValue = par.theValue;
     theError = par.theError;
     theConst = par.theConst;
@@ -67,7 +66,7 @@ public:
 
   //access methods
   unsigned int number() const {return theNum;}
-  const char* name() const {return theName;}
+  const char* name() const {return theName.c_str();}
   double value() const {return theValue;}
   double error() const {return theError;}
 
@@ -123,7 +122,6 @@ public:
 private:
 
   unsigned int theNum;
-  char theName[11];
   double theValue;
   double theError;
   bool theConst;
@@ -132,15 +130,11 @@ private:
   double theUpLimit;
   bool theLoLimValid; 
   bool theUpLimValid;
+  std::string theName;
 
 private:
 
-  void setName(const char* name) {
-    int l = std::min(int(strlen(name)), 11);
-    memset(theName, 0, 11*sizeof(char));
-    memcpy(theName, name, l*sizeof(char));
-    theName[10] = '\0';
-  }
+  void setName( const char* name ) { theName = name; }
 };
 
 #endif //MN_MinuitParameter_H_

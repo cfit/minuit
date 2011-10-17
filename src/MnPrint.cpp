@@ -47,7 +47,7 @@ std::ostream& operator<<(std::ostream& os, const MnUserParameters& par) {
 
   os << std::endl;
  
-  os << "# ext. |" << "|   name    |" << "|   type  |" << "|   value   |" << "|  error +/- " << std::endl;
+  os << "# ext. |" << "|        name         |" << "|   type  |" << "|   value   |" << "|  error +/- " << std::endl;
       
   os << std::endl;
 
@@ -55,7 +55,7 @@ std::ostream& operator<<(std::ostream& os, const MnUserParameters& par) {
   bool atHiLim = false;
   for(std::vector<MinuitParameter>::const_iterator ipar = par.parameters().begin(); ipar != par.parameters().end(); ipar++) {
     os << std::setw(4) << (*ipar).number() << std::setw(5) << "||"; 
-    os << std::setw(10) << (*ipar).name()   << std::setw(3) << "||";
+    os << std::setw(20) << (*ipar).name()   << std::setw(3) << "||";
     if((*ipar).isConst()) {
       os << "  const  ||" << std::setprecision(4) << std::setw(10) << (*ipar).value() << " ||" << std::endl;
     } else if((*ipar).isFixed()) {

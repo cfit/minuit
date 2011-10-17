@@ -63,19 +63,19 @@ am_test_Minuit_Quad12FMain_OBJECTS = Quad12FMain.$(OBJEXT)
 test_Minuit_Quad12FMain_OBJECTS =  \
 	$(am_test_Minuit_Quad12FMain_OBJECTS)
 test_Minuit_Quad12FMain_DEPENDENCIES =  \
-	$(top_builddir)/src/liblcg_Minuit.la
+	$(top_builddir)/src/libminuit.la
 am_test_Minuit_Quad1FMain_OBJECTS = Quad1FMain.$(OBJEXT)
 test_Minuit_Quad1FMain_OBJECTS = $(am_test_Minuit_Quad1FMain_OBJECTS)
 test_Minuit_Quad1FMain_DEPENDENCIES =  \
-	$(top_builddir)/src/liblcg_Minuit.la
+	$(top_builddir)/src/libminuit.la
 am_test_Minuit_Quad4FMain_OBJECTS = Quad4FMain.$(OBJEXT)
 test_Minuit_Quad4FMain_OBJECTS = $(am_test_Minuit_Quad4FMain_OBJECTS)
 test_Minuit_Quad4FMain_DEPENDENCIES =  \
-	$(top_builddir)/src/liblcg_Minuit.la
+	$(top_builddir)/src/libminuit.la
 am_test_Minuit_Quad8FMain_OBJECTS = Quad8FMain.$(OBJEXT)
 test_Minuit_Quad8FMain_OBJECTS = $(am_test_Minuit_Quad8FMain_OBJECTS)
 test_Minuit_Quad8FMain_DEPENDENCIES =  \
-	$(top_builddir)/src/liblcg_Minuit.la
+	$(top_builddir)/src/libminuit.la
 DEFAULT_INCLUDES = -I. -I$(srcdir) -I$(top_builddir)
 depcomp = $(SHELL) $(top_srcdir)/config/depcomp
 am__depfiles_maybe = depfiles
@@ -232,16 +232,16 @@ INCLUDES = \
 	-I$(top_srcdir)	
 
 test_Minuit_Quad4FMain_LDADD = \
-	$(top_builddir)/src/liblcg_Minuit.la
+	$(top_builddir)/src/libminuit.la
 
 test_Minuit_Quad1FMain_LDADD = \
-	$(top_builddir)/src/liblcg_Minuit.la
+	$(top_builddir)/src/libminuit.la
 
 test_Minuit_Quad8FMain_LDADD = \
-	$(top_builddir)/src/liblcg_Minuit.la
+	$(top_builddir)/src/libminuit.la
 
 test_Minuit_Quad12FMain_LDADD = \
-	$(top_builddir)/src/liblcg_Minuit.la
+	$(top_builddir)/src/libminuit.la
 
 test_Minuit_Quad4FMain_LDFLAGS = \
 	-L$(CXX_LIB_PATH)			\
