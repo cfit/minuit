@@ -230,6 +230,17 @@ void MnUserTransformation::release(unsigned int n) {
   theParameters[n].release();
 }
 
+void MnUserTransformation::blind(unsigned int n) {
+  assert(n < theParameters.size());
+  theParameters[n].blind();
+}
+
+void MnUserTransformation::unblind(unsigned int n) {
+  assert(n < theParameters.size());
+  theParameters[n].unblind();
+}
+
+
 void MnUserTransformation::setValue(unsigned int n, double val) {
   assert(n < theParameters.size()); 
   theParameters[n].setValue(val);
@@ -278,6 +289,14 @@ void MnUserTransformation::fix(const char* name) {
 
 void MnUserTransformation::release(const char* name) {
   release(index(name));
+}
+
+void MnUserTransformation::blind(const char* name) {
+  blind(index(name));
+}
+
+void MnUserTransformation::unblind(const char* name) {
+  unblind(index(name));
 }
 
 void MnUserTransformation::setValue(const char* name, double val) {

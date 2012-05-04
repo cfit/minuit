@@ -46,6 +46,8 @@ void MnApplication::add(const char* name, double val) {
 //interaction via external number of parameter
 void MnApplication::fix(unsigned int i) {theState.fix(i);}
 void MnApplication::release(unsigned int i) {theState.release(i);}
+void MnApplication::blind  (unsigned int i) {theState.blind  (i);}
+void MnApplication::unblind(unsigned int i) {theState.unblind(i);}
 void MnApplication::setValue(unsigned int i, double val) {
   theState.setValue(i, val);
 }
@@ -63,6 +65,8 @@ double MnApplication::error(unsigned int i) const {return theState.error(i);}
 //interaction via name of parameter
 void MnApplication::fix(const char* i) {theState.fix(i);}
 void MnApplication::release(const char* i) {theState.release(i);}
+void MnApplication::blind  (const char* i) {theState.blind  (i);}
+void MnApplication::unblind(const char* i) {theState.unblind(i);}
 void MnApplication::setValue(const char* i, double val) {theState.setValue(i, val);}
 void MnApplication::setError(const char* i, double val) {theState.setError(i, val);}
 void MnApplication::setLimits(const char* i, double low, double up) {

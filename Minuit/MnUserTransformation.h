@@ -122,6 +122,8 @@ public:
   //interaction via external number of parameter
   void fix(unsigned int);
   void release(unsigned int);
+  void blind  (unsigned int);
+  void unblind(unsigned int);
   void setValue(unsigned int, double);
   void setError(unsigned int, double);
   void setLimits(unsigned int, double, double);
@@ -135,6 +137,8 @@ public:
   //interaction via name of parameter
   void fix(const char*);
   void release(const char*);
+  void blind  (const char*);
+  void unblind(const char*);
   void setValue(const char*, double);
   void setError(const char*, double);
   void setLimits(const char*, double, double);

@@ -18,14 +18,16 @@ public:
   //constructor for constant parameter
   MinuitParameter(unsigned int num, const char* name, double val) : 
     theNum(num), theValue(val), theError(0.), theConst(true), theFix(false), 
-    theLoLimit(0.), theUpLimit(0.), theLoLimValid(false), theUpLimValid(false){
+    theLoLimit(0.), theUpLimit(0.), theLoLimValid(false), theUpLimValid(false), theBlind( false )
+  {
     setName(name);
   }
   
   //constructor for standard parameter
   MinuitParameter(unsigned int num, const char* name, double val, double err) :
     theNum(num), theValue(val), theError(err), theConst(false), theFix(false), 
-    theLoLimit(0.), theUpLimit(0.), theLoLimValid(false), theUpLimValid(false){
+    theLoLimit(0.), theUpLimit(0.), theLoLimValid(false), theUpLimValid(false), theBlind( false )
+  {
     setName(name);
   }
   
@@ -33,7 +35,8 @@ public:
   MinuitParameter(unsigned int num, const char* name, double val, double err, 
 		  double min, double max) : 
     theNum(num),theValue(val), theError(err), theConst(false), theFix(false), 
-    theLoLimit(min), theUpLimit(max), theLoLimValid(true), theUpLimValid(true){
+    theLoLimit(min), theUpLimit(max), theLoLimValid(true), theUpLimValid(true), theBlind( false )
+  {
     assert(min != max);
     if(min > max) {
       theLoLimit = max;
@@ -48,7 +51,7 @@ public:
     theNum(par.theNum), theValue(par.theValue), theError(par.theError),
     theConst(par.theConst), theFix(par.theFix), theLoLimit(par.theLoLimit), 
     theUpLimit(par.theUpLimit), theLoLimValid(par.theLoLimValid), 
-    theUpLimValid(par.theUpLimValid), theName( par.name() ) {}
+    theUpLimValid(par.theUpLimValid), theName( par.name() ), theBlind( par.theBlind ) {}
   
   MinuitParameter& operator=(const MinuitParameter& par) {
     theNum  = par.theNum;
@@ -61,6 +64,7 @@ public:
     theUpLimit = par.theUpLimit;
     theLoLimValid = par.theLoLimValid; 
     theUpLimValid = par.theUpLimValid;
+    theBlind      = par.theBlind;
     return *this;
   }
 
@@ -108,10 +112,14 @@ public:
 
   void fix() {theFix = true;}
   void release() {theFix = false;}
-  
+
+  void blind  ( bool value = true ) { theBlind = value; }
+  void unblind()                    { theBlind = false; }
+
   //state of parameter (fixed/const/limited)
   bool isConst() const {return theConst;}
   bool isFixed() const {return theFix;}
+  bool isBlind() const {return theBlind;}
 
   bool hasLimits() const {return theLoLimValid || theUpLimValid; }
   bool hasLowerLimit() const {return theLoLimValid; }
@@ -131,6 +139,8 @@ private:
   bool theLoLimValid; 
   bool theUpLimValid;
   std::string theName;
+
+  bool theBlind;
 
 private:
 

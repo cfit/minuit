@@ -38,6 +38,14 @@ void MnUserParameters::release(unsigned int n) {
   theTransformation.release(n);
 }
 
+void MnUserParameters::blind(unsigned int n) {
+  theTransformation.blind(n);
+}
+
+void MnUserParameters::unblind(unsigned int n) {
+  theTransformation.unblind(n);
+}
+
 void MnUserParameters::setValue(unsigned int n, double val) {
   theTransformation.setValue(n, val);
 }
@@ -76,6 +84,14 @@ void MnUserParameters::fix(const char* name) {
 
 void MnUserParameters::release(const char* name) {
   release(index(name));
+}
+
+void MnUserParameters::blind(const char* name) {
+  blind(index(name));
+}
+
+void MnUserParameters::unblind(const char* name) {
+  unblind(index(name));
 }
 
 void MnUserParameters::setValue(const char* name, double val) {

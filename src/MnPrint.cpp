@@ -53,32 +53,62 @@ std::ostream& operator<<(std::ostream& os, const MnUserParameters& par) {
 
   bool atLoLim = false;
   bool atHiLim = false;
-  for(std::vector<MinuitParameter>::const_iterator ipar = par.parameters().begin(); ipar != par.parameters().end(); ipar++) {
+
+  bool blind = false;
+  for(std::vector<MinuitParameter>::const_iterator ipar = par.parameters().begin(); ipar != par.parameters().end(); ipar++)
+  {
+    blind = ipar->isBlind();
+
     os << std::setw(4) << (*ipar).number() << std::setw(5) << "||"; 
     os << std::setw(20) << (*ipar).name()   << std::setw(3) << "||";
-    if((*ipar).isConst()) {
-      os << "  const  ||" << std::setprecision(4) << std::setw(10) << (*ipar).value() << " ||" << std::endl;
-    } else if((*ipar).isFixed()) {
-      os << "  fixed  ||" << std::setprecision(4) << std::setw(10) << (*ipar).value() << " ||" << std::endl;
-    } else if((*ipar).hasLimits()) {
-      if((*ipar).error() > 0.) {
-	os << " limited ||" << std::setprecision(4) << std::setw(10) << (*ipar).value();
-	if(fabs((*ipar).value() - (*ipar).lowerLimit()) < par.precision().eps2()) {
+    if((*ipar).isConst())
+    {
+      if ( blind )
+        os << "  const  ||" << std::setprecision(4) << std::setw(10) << "blind"         << " ||" << std::endl;
+      else
+        os << "  const  ||" << std::setprecision(4) << std::setw(10) << (*ipar).value() << " ||" << std::endl;
+    }
+    else if((*ipar).isFixed())
+    {
+      if ( blind )
+        os << "  fixed  ||" << std::setprecision(4) << std::setw(10) << "blind"         << " ||" << std::endl;
+      else
+        os << "  fixed  ||" << std::setprecision(4) << std::setw(10) << (*ipar).value() << " ||" << std::endl;
+    }
+    else if((*ipar).hasLimits())
+    {
+      if((*ipar).error() > 0.)
+      {
+        if ( blind )
+          os << " limited ||" << std::setprecision(4) << std::setw(10) << "blind";
+        else
+          os << " limited ||" << std::setprecision(4) << std::setw(10) << (*ipar).value();
+        if(fabs((*ipar).value() - (*ipar).lowerLimit()) < par.precision().eps2())
+        {
 	  os <<"*";
 	  atLoLim = true;
 	}
-	if(fabs((*ipar).value() - (*ipar).upperLimit()) < par.precision().eps2()) {
+	if(fabs((*ipar).value() - (*ipar).upperLimit()) < par.precision().eps2())
+        {
 	  os <<"**";
 	  atHiLim = true;
 	}
 	os << " ||" << std::setw(8) << (*ipar).error() << std::endl;
-      } else
-	os << "  free   ||" << std::setprecision(4) << std::setw(10) << (*ipar).value() << " ||" << std::setw(8) << "no" << std::endl;
-    } else {
-      if((*ipar).error() > 0.)
-	os << "  free   ||" << std::setprecision(4) << std::setw(10) << (*ipar).value() << " ||" << std::setw(8) << (*ipar).error() << std::endl;
+      }
       else
 	os << "  free   ||" << std::setprecision(4) << std::setw(10) << (*ipar).value() << " ||" << std::setw(8) << "no" << std::endl;
+    }
+    else
+    {
+      if ( blind )
+	os << "  free   ||" << std::setprecision(4) << std::setw(10) << "blind"         << " ||";
+      else
+	os << "  free   ||" << std::setprecision(4) << std::setw(10) << (*ipar).value() << " ||";
+
+      if((*ipar).error() > 0.)
+        os << std::setw(8) << (*ipar).error() << std::endl;
+      else
+        os << std::setw(8) << "no" << std::endl;
 	
     }
   }

@@ -92,6 +92,8 @@ MnUserParameterState::MnUserParameterState(const MinimumState& st, double up, co
       double err = st.hasCovariance() ? sqrt(2.*up*st.error().invHessian()(i,i)) : st.parameters().dirin()(i);
       add((*ipar).name(), st.vec()(i), err);
     }
+    if ( ipar->isBlind() )
+      blind( ipar->name() );
   }
 
   theCovarianceValid = st.error().isValid();
@@ -192,6 +194,16 @@ void MnUserParameterState::release(unsigned int e) {
     theIntParameters.insert(theIntParameters.begin()+i, parameter(e).value());
 }
 
+void MnUserParameterState::blind( unsigned int e )
+{
+  theParameters.blind( e );
+}
+
+void MnUserParameterState::unblind( unsigned int e )
+{
+  theParameters.unblind( e );
+}
+
 void MnUserParameterState::setValue(unsigned int e, double val) {
   theParameters.setValue(e, val);
   if(!parameter(e).isFixed() && !parameter(e).isConst()) {
@@ -268,6 +280,14 @@ void MnUserParameterState::fix(const char* name) {
 
 void MnUserParameterState::release(const char* name) {
   release(index(name));
+}
+
+void MnUserParameterState::blind(const char* name) {
+  blind(index(name));
+}
+
+void MnUserParameterState::unblind(const char* name) {
+  unblind(index(name));
 }
 
 void MnUserParameterState::setValue(const char* name, double val) {
