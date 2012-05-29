@@ -2,6 +2,7 @@
 #include "Minuit/MnUserCovariance.h"
 
 #include <algorithm>
+#include <cstdio>
 
 class MnParStr {
 
